@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.img {
+    border: 1px solid lime;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.header_heading {
+    color: lime;
+}
