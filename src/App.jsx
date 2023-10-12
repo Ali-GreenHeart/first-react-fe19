@@ -1,5 +1,7 @@
+import React from 'react'
 import './App.css'
-import FirstElement from "./FirstElement"
+import FirstElement from "./components/FirstElement"
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <FirstElement ad='lale' soyad='quliyeva' />
       <FirstElement ad='leman' soyad='qehremanov' />
       <FirstElement ad='ali' soyad='ismayilov' />
+      {/* self-closed */}
+      <Footer />
     </>
   )
 }
