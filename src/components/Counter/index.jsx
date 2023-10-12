@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import Button from '../Button'
+import styles from './index.module.css'
 export default function Counter() {
     // hook use* ;  xususi bir isleri gorurler. 
     // class component-ler (stateful): state, lifecycle
@@ -8,11 +9,13 @@ export default function Counter() {
     return (
         <>
             <h1>{count}</h1>
-            <button onClick={() => setCount(count + 1)}>+</button>
-            <button onClick={() => setCount(count - 1)}>-</button>
-            <button onClick={() => setCount(0)}>reset</button>
-            <button onClick={() => console.log(count)}>console</button>
-            <button onClick={() => setCount(+prompt('eded daxil edin: '))}>special</button>
+            <div className={styles.btn_container}>
+                <Button title="+" onClick={() => setCount(count + 1)} />
+                <Button title="-" onClick={() => setCount(count - 1)} />
+                <Button title="reset" onClick={() => setCount(0)} />
+                <Button title="console" onClick={() => console.log(count)} />
+                <Button title="special" onClick={() => setCount(+prompt('eded daxil edin: '))} />
+            </div>
         </>
     )
 }
