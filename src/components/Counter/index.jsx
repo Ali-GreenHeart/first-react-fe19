@@ -5,6 +5,8 @@ export default function Counter() {
     // hook use* ;  xususi bir isleri gorurler. 
     // class component-ler (stateful): state, lifecycle
     // functional (stateless)
+
+    // state , props -> 
     const [count, setCount] = useState(0)
     return (
         <>
