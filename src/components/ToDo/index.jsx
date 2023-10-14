@@ -36,10 +36,10 @@ const ToDo = () => {
 
     return (
         <>
-            {
-                error && <p className={styles.error}>{error}</p>
-            }
             <div className={styles.container}>
+                {
+                    error && <p className={styles.error}>{error}</p>
+                }
                 <Input
                     onEnter={addToDo}
                     value={value}
@@ -51,13 +51,17 @@ const ToDo = () => {
                     title="add todo"
                     onClick={addToDo}
                 />
-                {todos.map((todoName) => (
-                    <div className={styles.todo_container} key={todoName}>
-                        <p>{todoName}</p>
-                        <button onClick={() => onEdit(todoName)}>🖋</button>
-                        <button onClick={() => onDelete(todoName, setTodos)}>❌</button>
-                    </div>
-                ))}
+                <div className={styles.todoContainer}>
+                    {todos.map((todoName) => (
+                        <div className={styles.todo_container} key={todoName}>
+                            <p>{todoName}</p>
+                            <div className={styles.btn_container}>
+                                <button onClick={() => onEdit(todoName)}>🖋</button>
+                                <button onClick={() => onDelete(todoName, setTodos)}>❌</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </>
     )
