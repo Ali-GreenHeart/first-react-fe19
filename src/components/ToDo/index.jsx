@@ -8,6 +8,7 @@ const onDelete = (_todoName, setTodos) => {
 }
 
 const ToDo = () => {
+    const [error, setError] = useState('')
     const [value, setValue] = useState('')
     const [todos, setTodos] = useState([])
 
@@ -22,12 +23,22 @@ const ToDo = () => {
     }
 
     const addToDo = () => {
+        if (value.length < 4) { // 4-den kicik olmasin
+            setError("uzunlugu 4-den kicik todo olmur!")
+            setTimeout(() => {
+                setError('')
+            }, 1000);
+            return;
+        }
         setTodos([...todos, value])
         setValue('')
     }
 
     return (
         <>
+            {
+                error && <p className={styles.error}>{error}</p>
+            }
             <div className={styles.container}>
                 <Input
                     onEnter={addToDo}
