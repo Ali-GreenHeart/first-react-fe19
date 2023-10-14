@@ -2,3 +2,15 @@
     display: flex;
     flex-direction: column;
 }
+
+.todo_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.todo_container button {
+    padding: 2px;
+    font-size: 14px;
+}

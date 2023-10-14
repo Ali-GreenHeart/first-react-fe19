@@ -7,6 +7,19 @@ const ToDo = () => {
     const [value, setValue] = useState('')
     const [todos, setTodos] = useState([])
 
+    const onEdit = (_todoName) => {
+        let newTodos = todos.map((todoName) => {
+            if (todoName === _todoName) {
+                return prompt('yeni todo adini yazin: ', _todoName)
+            }
+            return todoName;
+        })
+        setTodos(newTodos)
+    }
+    const onDelete = (todoName) => {
+
+    }
+
     return (
         <>
             <div className={styles.container}>
@@ -16,11 +29,20 @@ const ToDo = () => {
                         setValue(e.target.value)
                     }}
                 />
-                <Button title="add todo" onClick={() => {
-                    setTodos([...todos, value])
-                    setValue('')
-                }} />
-                <Button title="show todos on console" onClick={() => { console.log(todos) }} />
+                <Button
+                    title="add todo"
+                    onClick={() => {
+                        setTodos([...todos, value])
+                        setValue('')
+                    }}
+                />
+                {todos.map((todoName) => (
+                    <div className={styles.todo_container} key={todoName}>
+                        <p>{todoName}</p>
+                        <button onClick={() => onEdit(todoName)}>🖋</button>
+                        <button onClick={() => onDelete(todoName)}>❌</button>
+                    </div>
+                ))}
             </div>
         </>
     )
