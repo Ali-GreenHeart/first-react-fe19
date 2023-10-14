@@ -3,6 +3,10 @@ import Button from "../Button"
 import Input from "../Input";
 import styles from "./index.module.css"
 
+const onDelete = (_todoName, setTodos) => {
+    setTodos((preTodos) => preTodos.filter((tn) => tn !== _todoName))
+}
+
 const ToDo = () => {
     const [value, setValue] = useState('')
     const [todos, setTodos] = useState([])
@@ -16,16 +20,17 @@ const ToDo = () => {
         })
         setTodos(newTodos)
     }
-    const onDelete = (_todoName) => {
-        // let newTodos = todos.filter((tn) => tn !== _todoName)
-        // setTodos(newTodos)
-        setTodos((preTodos) => preTodos.filter((tn) => tn !== _todoName))
+
+    const addToDo = () => {
+        setTodos([...todos, value])
+        setValue('')
     }
 
     return (
         <>
             <div className={styles.container}>
                 <Input
+                    onEnter={addToDo}
                     value={value}
                     onChange={(e) => {
                         setValue(e.target.value)
@@ -33,16 +38,13 @@ const ToDo = () => {
                 />
                 <Button
                     title="add todo"
-                    onClick={() => {
-                        setTodos([...todos, value])
-                        setValue('')
-                    }}
+                    onClick={addToDo}
                 />
                 {todos.map((todoName) => (
                     <div className={styles.todo_container} key={todoName}>
                         <p>{todoName}</p>
                         <button onClick={() => onEdit(todoName)}>🖋</button>
-                        <button onClick={() => onDelete(todoName)}>❌</button>
+                        <button onClick={() => onDelete(todoName, setTodos)}>❌</button>
                     </div>
                 ))}
             </div>
