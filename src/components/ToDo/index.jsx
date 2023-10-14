@@ -16,8 +16,10 @@ const ToDo = () => {
         })
         setTodos(newTodos)
     }
-    const onDelete = (todoName) => {
-
+    const onDelete = (_todoName) => {
+        // let newTodos = todos.filter((tn) => tn !== _todoName)
+        // setTodos(newTodos)
+        setTodos((preTodos) => preTodos.filter((tn) => tn !== _todoName))
     }
 
     return (
