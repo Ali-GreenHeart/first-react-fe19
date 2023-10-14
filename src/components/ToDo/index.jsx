@@ -41,6 +41,7 @@ const ToDo = () => {
                     error && <p className={styles.error}>{error}</p>
                 }
                 <Input
+                    placeholder="what are you going TO DO?"
                     onEnter={addToDo}
                     value={value}
                     onChange={(e) => {
