@@ -23,7 +23,17 @@ const Contacts = ({ }) => {
             getContacts(setContacts)
         })
     }
-
+    const onEdit = (id) => {
+        let newName = prompt('enter new name')
+        axios.put(`${_url}/${id}`, { name: newName }).then(() => {
+            getContacts(setContacts)
+        })
+    }
+    const onDelete = (id) => {
+        axios.delete(`${_url}/${id}`).then(() => {
+            getContacts(setContacts)
+        })
+    }
 
     return (
         <>
@@ -36,6 +46,10 @@ const Contacts = ({ }) => {
                     return <React.Fragment key={id}>
                         <p>{name}</p>
                         <hr />
+                        <div>
+                            <button onClick={() => onEdit(id)}>🖋</button>
+                            <button onClick={() => onDelete(id)}>❌</button>
+                        </div>
                     </React.Fragment>
                 })
             }
