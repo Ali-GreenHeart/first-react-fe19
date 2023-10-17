@@ -4,29 +4,25 @@ import { useEffect, useState } from "react"
 
 const _url = 'https://jsonplaceholder.typicode.com/users'
 const Users = () => {
-    const [users, setUsers] = useState(0)
+    const [users, setUsers] = useState([])
 
     useEffect(() => {
-        console.log('men yarandim!')
-    }, [])
-    useEffect(() => {
-        console.log('users deyisildi dostum')
-    }, [users])
-    useEffect(() => {
-        return () => {
-            console.log('RIP')
-        }
-        // clean-up funksiyasi
+        axios.get(_url).then(({ data }) => {
+            setUsers(data)
+        })
     }, [])
 
     return (
         <div>
             <h1>Users sehifesi</h1>
-            <button
-                onClick={() => {
-                    setUsers(users + 1)
-                }}
-            >users deyisildi</button>
+            {
+                users.map((user) => {
+                    return <div key={user.id}>
+                        <h1>{user.username}</h1>
+                        <hr />
+                    </div>
+                })
+            }
         </div>
     )
 }
