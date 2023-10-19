@@ -3,6 +3,8 @@ import Button from "../Button"
 import styles from "./index.module.css"
 import React, { useEffect, useState } from "react"
 import axios from "axios"
+import Post from "../Post"
+
 
 const _url = 'https://6530c2906c756603295eff06.mockapi.io/posts'
 
@@ -50,7 +52,6 @@ const SocialNetwork = () => {
                     placeholder="enter post's title" />
                 <TextArea
                     onEnter={handleSubmit}
-
                     value={description}
                     onChange={setDescription}
                     placeholder="enter post's description" />
@@ -58,16 +59,13 @@ const SocialNetwork = () => {
             </div>
             <div className={styles.postsContainer}>
                 {
-                    posts.map((post) => {
-                        return (
-                            <React.Fragment key={post.id}>
-                                <h4>{post.title}</h4>
-                                <p>{post.description}</p>
-                                <button onClick={() => onDelete(post.id)}>❌</button>
-                                <hr />
-                            </React.Fragment>
-                        )
-                    })
+                    posts.map((post) =>
+                        <Post
+                            key={post.id}
+                            post={post}
+                            onDelete={onDelete}
+                        />
+                    )
                 }
             </div>
         </>
