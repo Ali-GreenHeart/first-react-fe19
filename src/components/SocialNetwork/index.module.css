@@ -1,0 +1,9 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.inputContainer>* {
+    font-size: 20px !important;
+}
