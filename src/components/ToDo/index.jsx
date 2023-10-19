@@ -44,9 +44,7 @@ const ToDo = () => {
                     placeholder="what are you going TO DO?"
                     onEnter={addToDo}
                     value={value}
-                    onChange={(e) => {
-                        setValue(e.target.value)
-                    }}
+                    onChange={setValue}
                 />
                 <Button
                     title="add todo"
