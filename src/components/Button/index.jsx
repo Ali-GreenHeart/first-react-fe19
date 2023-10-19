@@ -1,9 +1,9 @@
 import styles from "./index.module.css"
 
-export default function Button({ title, onClick }) {
+export default function Button({ title, onClick, width }) {
     return (
-        <button className={styles.button} onClick={onClick}>
+        <button style={{ width: width }} className={styles.button} onClick={onClick} >
             {title}
-        </button>
+        </button >
     )
 }
