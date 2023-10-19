@@ -34,6 +34,12 @@ const SocialNetwork = () => {
         setTitle('')
         setDescription('')
     }
+    const onDelete = (id) => {
+        axios.delete(_url + '/' + id)
+            .then(() => {
+                getPosts(setPosts)
+            })
+    }
     return (
         <>
             <div className={styles.inputContainer}>
@@ -57,6 +63,7 @@ const SocialNetwork = () => {
                             <React.Fragment key={post.id}>
                                 <h4>{post.title}</h4>
                                 <p>{post.description}</p>
+                                <button onClick={() => onDelete(post.id)}>❌</button>
                                 <hr />
                             </React.Fragment>
                         )
