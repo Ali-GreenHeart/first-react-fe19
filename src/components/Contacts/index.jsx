@@ -1,6 +1,7 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { Outlet, useParams } from "react-router"
+import PageContainer from "../PageContainer"
 
 const _url = 'https://651e64e844a3a8aa4768416c.mockapi.io/api/v0/contacts'
 
@@ -36,7 +37,7 @@ const Contacts = ({ }) => {
     }
 
     return (
-        <>
+        <PageContainer>
             <Outlet />
             <form onSubmit={onSubmit}>
                 <input type="text" value={name} onChange={setName} />
@@ -54,7 +55,7 @@ const Contacts = ({ }) => {
                     </React.Fragment>
                 })
             }
-        </>
+        </PageContainer>
     )
 }
 

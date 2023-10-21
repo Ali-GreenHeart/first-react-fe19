@@ -1,4 +1,5 @@
 // import "./index.css"
+import Navigation from "../Navigation"
 import styles from "./index.module.css"
 
 const Header = () => {
@@ -7,6 +8,7 @@ const Header = () => {
         <header className={styles.header}>
             <img className={styles.img} src="/vite.svg" alt="vite logo" />
             <h1 className={styles.header_heading}>Our First React </h1>
+            <Navigation />
         </header>
     )
 }
