@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './App.css'
-import Users from './components/Users'
-import Contacts from './components/Contacts'
-import SocialNetwork from './components/SocialNetwork'
+import WebRouting from './routing'
 
 function App() {
   return (
     <>
-      {/* <Contacts /> */}
-      <SocialNetwork />
+      <WebRouting />
     </>
   )
 }
-
 export default App

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../Button"
 import Input from "../Input";
 import styles from "./index.module.css"
+import { useNavigate } from "react-router";
 
 const onDelete = (_todoName, setTodos) => {
     setTodos((preTodos) => preTodos.filter((tn) => tn !== _todoName))
@@ -11,6 +12,7 @@ const ToDo = () => {
     const [error, setError] = useState('')
     const [value, setValue] = useState('')
     const [todos, setTodos] = useState([])
+    const navigate = useNavigate()
 
     const onEdit = (_todoName) => {
         let newTodos = todos.map((todoName) => {
@@ -32,6 +34,7 @@ const ToDo = () => {
         }
         setTodos([...todos, value])
         setValue('')
+        navigate("/contacts")
     }
 
     return (

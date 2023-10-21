@@ -1,5 +1,6 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
+import { Outlet } from "react-router"
 
 const _url = 'https://651e64e844a3a8aa4768416c.mockapi.io/api/v0/contacts'
 
@@ -36,6 +37,7 @@ const Contacts = ({ }) => {
 
     return (
         <>
+            <Outlet />
             <form onSubmit={onSubmit}>
                 <input type="text" value={name} onChange={setName} />
                 <button>add contact</button>
