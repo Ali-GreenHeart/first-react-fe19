@@ -1,6 +1,6 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-import { Outlet } from "react-router"
+import { Outlet, useParams } from "react-router"
 
 const _url = 'https://651e64e844a3a8aa4768416c.mockapi.io/api/v0/contacts'
 
@@ -57,4 +57,16 @@ const Contacts = ({ }) => {
         </>
     )
 }
+
+
+export function SingleContact() {
+    const { id } = useParams()
+    return (
+        <div>
+            <h1>Contact with id {id}</h1>
+        </div >
+    )
+}
+
+
 export default Contacts
