@@ -3,16 +3,55 @@
   padding: 20px;
 }
 
+.mode-container * {
+  background-color: inherit !important;
+  color: inherit !important;
+}
+
 .darkModeContainer {
   background-color: #1a1a1a !important;
   color: white !important;
 }
 
-.darkModeContainer * {
-  background-color: inherit !important;
-  color: inherit !important;
-}
 
 body {
   margin: 0;
+}
+
+
+.many-mode-button {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+}
+
+
+
+.lightModeContainer {
+  color: #1a1a1a !important;
+  background-color: white !important;
+}
+
+.greenModeContainer {
+  background-color: #09700b !important;
+  color: white !important;
+}
+
+.purpleModeContainer {
+  background-color: #4705b3 !important;
+  color: white !important;
+}
+
+.pinkModeContainer {
+  background-color: #d205cb !important;
+  color: white !important;
+}
+
+.goldModeContainer {
+  background-color: #ffd700 !important;
+  color: black !important;
+}
+
+.goldBtn {
+  background-color: red !important;
 }

@@ -5,17 +5,20 @@ import App from './App'
 import AuthContextProvider from './context-api/AuthContext'
 import ModeContextProvider from './context-api/ModeContext'
 import "./index.css"
+import ManyModeContextProvider from './context-api/ManyModeContext'
 
 const reactRootElement = ReactDOM.createRoot(document.getElementById('root'))
 
 reactRootElement.render(
     <React.StrictMode>
         <AuthContextProvider>
-            <ModeContextProvider>
+            {/* <ModeContextProvider> */}
+            <ManyModeContextProvider>
                 <BrowserRouter>
                     <App />
                 </BrowserRouter>
-            </ModeContextProvider>
+            </ManyModeContextProvider>
+            {/* </ModeContextProvider> */}
         </AuthContextProvider>
     </React.StrictMode>
 )
