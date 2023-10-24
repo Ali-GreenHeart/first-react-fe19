@@ -1,14 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-import { BrowserRouter, Link, NavLink } from 'react-router-dom'
+import AuthContextProvider from './context-api/AuthContext'
 
 const reactRootElement = ReactDOM.createRoot(document.getElementById('root'))
 
 reactRootElement.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <AuthContextProvider>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </AuthContextProvider>
     </React.StrictMode>
 )
