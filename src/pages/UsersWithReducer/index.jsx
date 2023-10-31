@@ -1,33 +1,11 @@
 import axios from "axios"
 import { useEffect, useReducer } from "react"
-import { v4 } from "uuid"
 import PageContainer from "../../components/PageContainer"
+import { reducer_pakize } from "./user_reducer"
+import Button from "../../components/Button"
 
 const _url = 'https://jsonplaceholder.typicode.com/users'
 
-const reducer_pakize = (state = [], action) => {
-    switch (action.type) {
-        case "GET_USERS":
-            return action.payload;
-        case "DELETE_USER":
-            const areYouSure = confirm('are you sure? :) ')
-            if (areYouSure) {
-                const newState = state.filter(({ id }) => id !== action.payload)
-                return newState;
-            } else {
-                alert('zarafat eyleme qurbanin olum....')
-                return state;
-            }
-        case "ADD_USER":
-            const username = prompt('enter new username')
-            const email = prompt('enter new email')
-            const id = v4()
-            // return [...state, { id, username, email }]
-            return state.concat({ id, username, email })
-        default:
-            return []
-    }
-}
 
 const UsersWithReducer = () => {
     const [users, dispatch] = useReducer(reducer_pakize, [])
@@ -40,7 +18,14 @@ const UsersWithReducer = () => {
 
     return (
         <PageContainer>
-            <button onClick={() => dispatch({ type: "ADD_USER" })}>add user</button>
+            <Button
+                onClick={() => dispatch({ type: "ADD_USER" })}
+                title="add user"
+            />
+            <Button
+                onClick={() => dispatch({ type: "RM_LAST_USER" })}
+                title="remove last user"
+            />
             {
                 users.map(({ id, username, email }) => {
                     return (
