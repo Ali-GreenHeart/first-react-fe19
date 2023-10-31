@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import AuthContextProvider from './context-api/AuthContext'
 import ModeContextProvider from './context-api/ModeContext'
+import UserContextProvider from './context-api/UsersContext'
 import "./index.css"
 import ManyModeContextProvider from './context-api/ManyModeContext'
 
@@ -14,9 +15,11 @@ reactRootElement.render(
         <AuthContextProvider>
             {/* <ModeContextProvider> */}
             <ManyModeContextProvider>
-                <BrowserRouter>
-                    <App />
-                </BrowserRouter>
+                <UserContextProvider>
+                    <BrowserRouter>
+                        <App />
+                    </BrowserRouter>
+                </UserContextProvider>
             </ManyModeContextProvider>
             {/* </ModeContextProvider> */}
         </AuthContextProvider>
