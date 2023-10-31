@@ -10,6 +10,7 @@ const SocialNetwork = lazy(() => import("../components/SocialNetwork"))
 const Home = lazy(() => import("../pages/Home"))
 const About = lazy(() => import("../pages/About"))
 const NotFound = lazy(() => import("../pages/NotFound"))
+const UsersWithReducer = lazy(() => import("../pages/UsersWithReducer"))
 
 const WebRouting = () => {
     return (
@@ -23,6 +24,7 @@ const WebRouting = () => {
                 <Route path="/contacts/:id" element={<SingleContact />} />
                 <Route path='/todo' element={<ToDo />} />
                 <Route path='/social' element={<SocialNetwork />} />
+                <Route path='/users-with-reducer' element={<UsersWithReducer />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Suspense>

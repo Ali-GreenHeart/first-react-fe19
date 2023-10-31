@@ -11,17 +11,15 @@ import ManyModeContextProvider from './context-api/ManyModeContext'
 const reactRootElement = ReactDOM.createRoot(document.getElementById('root'))
 
 reactRootElement.render(
-    <React.StrictMode>
-        <AuthContextProvider>
-            {/* <ModeContextProvider> */}
-            <ManyModeContextProvider>
-                <UserContextProvider>
-                    <BrowserRouter>
-                        <App />
-                    </BrowserRouter>
-                </UserContextProvider>
-            </ManyModeContextProvider>
-            {/* </ModeContextProvider> */}
-        </AuthContextProvider>
-    </React.StrictMode>
+    <AuthContextProvider>
+        {/* <ModeContextProvider> */}
+        <ManyModeContextProvider>
+            <UserContextProvider>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </UserContextProvider>
+        </ManyModeContextProvider>
+        {/* </ModeContextProvider> */}
+    </AuthContextProvider>
 )
