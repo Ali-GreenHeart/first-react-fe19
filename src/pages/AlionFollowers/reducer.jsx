@@ -8,7 +8,9 @@ const _url = `https://api.github.com/users/Ali-GreenHeart/followers`
 
 export const _actions = {
     'get_followers': 0,
-    'remove_follower': 1
+    'remove_follower': 1,
+    'RM_last_follower': 2,
+    'RM_first_with_a': 3
 }
 
 const alion_followers_reducer = (store, action) => {
@@ -20,6 +22,13 @@ const alion_followers_reducer = (store, action) => {
                 ...store,
                 followers: store.followers.filter(({ id }) => id !== action.payload)
             }
+        case _actions.RM_last_follower:
+            return {
+                ...store,
+                followers: store.followers.slice(0, store.followers.length - 1)
+            }
+        case _actions.RM_first_with_a:
+        // your codes here...
         default:
             return store;
     }
