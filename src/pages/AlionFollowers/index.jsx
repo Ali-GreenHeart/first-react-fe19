@@ -14,15 +14,13 @@ const AlionFollowers = ({ }) => {
             dispatch({ type: _actions.get_followers, payload: data })
         })
     }, [])
-    console.log(store)
-
 
     return (
         <PageContainer>
             <h1>Welcome to alion's followers page! </h1>
             {
 
-                store.followers?.map((fol) => {
+                store.followers.map((fol) => {
                     return (
                         <div key={fol.id}>
                             <h1>{fol.login}</h1>
