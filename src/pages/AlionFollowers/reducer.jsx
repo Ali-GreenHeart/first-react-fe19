@@ -28,7 +28,15 @@ const alion_followers_reducer = (store, action) => {
                 followers: store.followers.slice(0, store.followers.length - 1)
             }
         case _actions.RM_first_with_a:
-        // your codes here...
+            let isFiltered = false
+            const newFols = store.followers.filter((fol) => {
+                if (!isFiltered && fol.login.toLowerCase().startsWith('a')) {
+                    isFiltered = true
+                    return false;
+                }
+                return true;
+            })
+            return { ...store, followers: newFols }
         default:
             return store;
     }
