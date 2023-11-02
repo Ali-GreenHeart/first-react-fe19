@@ -4,7 +4,7 @@ import alion_followers_reducer, { _actions, getFollowers, initialStore } from ".
 import { useEffect } from "react"
 
 
-
+const style = { display: 'flex', gap: 10, alignItems: 'center' }
 
 const AlionFollowers = ({ }) => {
     const [store, dispatch] = useReducer(alion_followers_reducer, initialStore)
@@ -15,6 +15,7 @@ const AlionFollowers = ({ }) => {
         })
     }, [])
 
+
     return (
         <PageContainer>
             <h1>Welcome to alion's followers page! </h1>
@@ -22,8 +23,13 @@ const AlionFollowers = ({ }) => {
 
                 store.followers.map((fol) => {
                     return (
-                        <div key={fol.id}>
+                        <div style={style} key={fol.id}>
                             <h1>{fol.login}</h1>
+                            <button
+                                onClick={() => dispatch({ type: _actions.remove_follower, payload: fol.id })}
+                            >
+                                ❌
+                            </button>
                         </div>
                     )
                 })
