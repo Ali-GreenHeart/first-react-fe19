@@ -5,7 +5,7 @@ import Loading from "../components/Loading"
 import UsersWithRedux from "../pages/UsersWithRedux"
 
 // lazy-loading
-const Contacts = lazy(() => import("../components/Contacts"))
+const Contacts = lazy(() => import("../pages/Contacts"))
 const ToDo = lazy(() => import("../components/ToDo"))
 const SocialNetwork = lazy(() => import("../components/SocialNetwork"))
 const Home = lazy(() => import("../pages/Home"))
