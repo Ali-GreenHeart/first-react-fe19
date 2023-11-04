@@ -10,6 +10,8 @@ const rootReducer = (store = initialStore, action) => {
             return { ...store, count: store.count + 1 }
         case 'dec':
             return { ...store, count: store.count - 1 }
+        case 'get_users':
+            return { ...store, users: action.payload }
         default:
             return store;
     }

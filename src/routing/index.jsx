@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router"
 import { SingleContact } from "../components/Contacts"
 import { Suspense, lazy } from "react"
 import Loading from "../components/Loading"
+import UsersWithRedux from "../pages/UsersWithRedux"
 
 // lazy-loading
 const Contacts = lazy(() => import("../components/Contacts"))
@@ -26,6 +27,7 @@ const WebRouting = () => {
                 <Route path='/todo' element={<ToDo />} />
                 <Route path='/counter-redux' element={<CounterR />} />
                 <Route path='/social' element={<SocialNetwork />} />
+                <Route path='/users-with-redux' element={<UsersWithRedux />} />
                 <Route path='/alion-followers' element={<AlionFollowers />} />
                 <Route path='/users-with-reducer' element={<UsersWithReducer />} />
                 <Route path="*" element={<NotFound />} />
