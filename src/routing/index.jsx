@@ -12,7 +12,7 @@ const About = lazy(() => import("../pages/About"))
 const NotFound = lazy(() => import("../pages/NotFound"))
 const UsersWithReducer = lazy(() => import("../pages/UsersWithReducer"))
 const AlionFollowers = lazy(() => import("../pages/AlionFollowers"))
-
+const CounterR = lazy(() => import('../pages/CounterR'))
 const WebRouting = () => {
     return (
         <Suspense fallback={<Loading />}>
@@ -24,6 +24,7 @@ const WebRouting = () => {
                 </Route>
                 <Route path="/contacts/:id" element={<SingleContact />} />
                 <Route path='/todo' element={<ToDo />} />
+                <Route path='/counter-redux' element={<CounterR />} />
                 <Route path='/social' element={<SocialNetwork />} />
                 <Route path='/alion-followers' element={<AlionFollowers />} />
                 <Route path='/users-with-reducer' element={<UsersWithReducer />} />
