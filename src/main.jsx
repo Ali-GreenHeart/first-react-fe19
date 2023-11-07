@@ -10,9 +10,10 @@ import ManyModeContextProvider from './context-api/ManyModeContext'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './redux'
+import store from './redux-toolkit/store'
 const reactRootElement = ReactDOM.createRoot(document.getElementById('root'))
 
-const store = createStore(rootReducer)
+// const store = createStore(rootReducer)
 // 1. obyektdir, immutable olmalidir!
 
 reactRootElement.render(
