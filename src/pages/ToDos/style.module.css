@@ -10,8 +10,13 @@
     min-height: 100px;
     padding: 10px;
     margin: 10px;
+    user-select: none;
 }
 
+.todo:hover {
+    opacity: 0.85;
+    cursor: pointer;
+}
 
 p {
     margin: 0;
