@@ -4,6 +4,7 @@ import { Suspense, lazy } from "react"
 import Loading from "../components/Loading"
 import UsersWithRedux from "../pages/UsersWithRedux"
 import CounterRTK from "../pages/CounterRTK"
+import ToDos from "../pages/ToDos"
 
 // lazy-loading
 const Contacts = lazy(() => import("../pages/Contacts"))
@@ -26,6 +27,7 @@ const WebRouting = () => {
                 </Route>
                 <Route path="/contacts/:id" element={<SingleContact />} />
                 <Route path='/todo' element={<ToDo />} />
+                <Route path='/todos' element={<ToDos />} />
                 <Route path='/counter-redux' element={<CounterR />} />
                 <Route path='/counter-rtk' element={<CounterRTK />} />
                 <Route path='/social' element={<SocialNetwork />} />
