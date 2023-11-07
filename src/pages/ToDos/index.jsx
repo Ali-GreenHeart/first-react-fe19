@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import todosSlice from "../../redux-toolkit/slices/todosSlice"
+import style from './style.module.css'
 
 const url = 'https://dummyjson.com/todos'
 
@@ -17,15 +18,19 @@ const ToDos = () => {
     return (
         <>
             <h1 style={{ textAlign: 'center' }}>Welcome to todos page</h1>
-            {
-                todos.map((todo) => {
-                    return (
-                        <p key={todo.id}>
-                            {todo.todo}
-                        </p>
-                    )
-                })
-            }
+            <div className={style.todosContainer}>
+                {
+                    todos.map((todo) => {
+                        return (
+                            <div style={{
+                                backgroundColor: todo.completed ? 'darkgreen' : 'darkred'
+                            }} className={style.todo} key={todo.id}>
+                                <p>{todo.todo}</p>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </>
     )
 }
